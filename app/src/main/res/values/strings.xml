@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MovieLib</string>
+    <string name="title_of_share_chooser">Share this app with your friend by:</string>
+    <string name="share_message">Hi dude join with me to this application MovieLib.This is a good one.</string>
+    <string name="movie_name1">The Boy</string>
+    <string name="movie_name2">The Old Woman</string>
+    <string name="movie_name3">The Dog</string>
+
+    <string name="movie_description1">This is a good movie about teenager boy and his friends.They are have a lot of adventure.</string>
+    <string name="movie_description2">This is a good movie about old woman and how she spend her time alon.This is a sad story prepare napkins.</string>
+    <string name="movie_description3">This is a good movie about a dog and how hard his live.This is a sad story prepare napkins................................................................................................................................................................................................................................................................................................asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss................................................................................</string>
+    <string name="comment_hint">Write your comment here</string>
+    <string name="about_application">About application</string>
+    <string name="main_activity">Main Screen</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="exit">Exit</string>
+    <string name="exit_dialog_title">Do you want to exit application</string>
+    <string name="positiv_dialog_button">Ok</string>
+    <string name="negativ_dilaog_button">cancel</string>
+    <string name="home">Home</string>
+    <string name="add">Add</string>
+</resources>
