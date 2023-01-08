@@ -20,4 +20,6 @@
     <string name="negativ_dilaog_button">cancel</string>
     <string name="home">Home</string>
     <string name="add">Add</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="info_text_fragment">Here some information about application </string>
 </resources>

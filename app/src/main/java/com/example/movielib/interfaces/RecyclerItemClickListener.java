@@ -1,4 +1,4 @@
-package com.example.movielib.recycler;
+package com.example.movielib.interfaces;
 
 public interface RecyclerItemClickListener {
     void onClickRecyclerItem(int position,int id);

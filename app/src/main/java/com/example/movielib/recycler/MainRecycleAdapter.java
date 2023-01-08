@@ -4,11 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.movielib.R;
 import com.example.movielib.data.Movie;
+import com.example.movielib.interfaces.RecyclerItemClickListener;
 
 import java.util.List;
 
@@ -19,6 +19,10 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MovieHolder> {
 
     public MainRecycleAdapter(List<Movie> movies,RecyclerItemClickListener listener){
         this.listener = listener;
+        this.movies = movies;
+    }
+
+    public MainRecycleAdapter(List<Movie> movies){
         this.movies = movies;
     }
 

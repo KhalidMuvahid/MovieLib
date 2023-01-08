@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -12,13 +11,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.movielib.DetailActivity;
-import com.example.movielib.MainActivity;
+import com.example.movielib.LovelyFragment;
+import com.example.movielib.MainFragment;
 import com.example.movielib.R;
+import com.example.movielib.data.LovelyMovies;
 import com.example.movielib.data.Movie;
+import com.example.movielib.interfaces.RecyclerItemClickListener;
 
 public class MovieHolder extends RecyclerView.ViewHolder {
     private TextView title;
@@ -39,6 +41,11 @@ public class MovieHolder extends RecyclerView.ViewHolder {
         imageView = itemView.findViewById(R.id.movieImage);
         detailBt = itemView.findViewById(R.id.detailBt);
         editBt = itemView.findViewById(R.id.editImBt);
+
+        if (listener instanceof LovelyFragment){
+            detailBt.setVisibility(View.GONE);
+            editBt.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_delete_outline_24));
+        }
 
 
     }
@@ -67,7 +74,18 @@ public class MovieHolder extends RecyclerView.ViewHolder {
                 imageViewAnimation(v);
             }
         });
+
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context,"sad",Toast.LENGTH_LONG).show();
+                LovelyMovies.getInstance().addToLovelies(movie);
+                return true;
+            }
+        });
     }
+
+
 
     private void imageViewAnimation(View v){
         ObjectAnimator rotation = ObjectAnimator.ofFloat(imageView,"rotation",360);
