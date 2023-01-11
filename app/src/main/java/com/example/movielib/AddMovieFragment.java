@@ -34,7 +34,7 @@ public class AddMovieFragment extends Fragment {
         binding.addNewMovieBt.setOnClickListener(v -> {
             String name = binding.newMovieName.getText().toString();
             String description = binding.newMovieDescription.getText().toString();
-            Data.getInstance().addMovie(new Movie(name,description,R.drawable.ic_baseline_image_24,false));
+//            Data.getInstance().addMovie(new Movie(name,description,R.drawable.ic_baseline_image_24,false));
             closeKeyBoard();
             getActivity().onBackPressed();
         });

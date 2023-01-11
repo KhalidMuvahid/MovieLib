@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.movielib.LovelyFragment;
 import com.example.movielib.MainFragment;
 import com.example.movielib.R;
@@ -53,12 +54,18 @@ public class MovieHolder extends RecyclerView.ViewHolder {
     protected void bind(Movie movie){
         this.movie = movie;
         title.setText(movie.getName());
-        description.setText(movie.getDescription());
-        imageView.setImageResource(movie.getImage());
+//        description.setText(movie.getDescription());
 
-        if (movie.getVisited()){
-            title.setTextColor(Color.GREEN);
-        }
+        Glide.with(itemView.getContext())
+                .load(movie.getImage())
+                .centerCrop()
+                .error(R.drawable.ic_baseline_error_outline_24)
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(imageView);
+
+//        if (movie.getVisited()){
+//            title.setTextColor(Color.GREEN);
+//        }
 
         detailBt.setOnClickListener(v -> {
             listener.onClickRecyclerItem(getAdapterPosition(),v.getId());

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,11 +13,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.movielib.data.Data;
 import com.example.movielib.data.Movie;
+import com.example.movielib.data.MovieJson;
 import com.example.movielib.databinding.FragmentMainBinding;
 import com.example.movielib.recycler.CustomItemAnimator;
 import com.example.movielib.recycler.MainRecycleAdapter;
 import com.example.movielib.interfaces.RecyclerItemClickListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainFragment extends Fragment implements RecyclerItemClickListener{
 
@@ -42,6 +50,7 @@ public class MainFragment extends Fragment implements RecyclerItemClickListener{
             System.out.println(getArguments().getBoolean("like"));
             System.out.println(getArguments().getString("comment"));
         }
+        Data.getInstance().movies().clear();
     }
 
     @Nullable
@@ -51,7 +60,28 @@ public class MainFragment extends Fragment implements RecyclerItemClickListener{
         recycleAdapter = new MainRecycleAdapter(Data.getInstance().movies(), this);
         binding.recyclerView.setAdapter(recycleAdapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recycleAdapter.notifyDataSetChanged();
+
+        binding.progressCircular.setVisibility(View.VISIBLE);
+        MovieApplication.getInstance().movieService.getMovies().enqueue(new Callback<List<MovieJson>>() {
+            @Override
+            public void onResponse(Call<List<MovieJson>> call, Response<List<MovieJson>> response) {
+                if (response.isSuccessful()){
+                    List<MovieJson> movieJsonList = response.body();
+                    for (MovieJson movieJson: movieJsonList){
+                        Data.getInstance().addMovie(new Movie(movieJson));
+                    }
+                    recycleAdapter.notifyDataSetChanged();
+                    binding.progressCircular.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<MovieJson>> call, Throwable t) {
+
+            }
+
+        });
+
         return binding.getRoot();
     }
 
@@ -83,11 +113,11 @@ public class MainFragment extends Fragment implements RecyclerItemClickListener{
     }
 
     private void openDetail(Movie movie){
-        movie.setVisited(true);
+//        movie.setVisited(true);
         Bundle bundle = new Bundle();
         bundle.putString(MainActivity.MOVIE_NAME,movie.getName());
-        bundle.putString(MainActivity.MOVIE_DESC,movie.getDescription());
-        bundle.putInt(MainActivity.MOVIE_IMG,movie.getImage());
+//        bundle.putString(MainActivity.MOVIE_DESC,movie.getDescription());
+//        bundle.putInt(MainActivity.MOVIE_IMG,movie.getImage());
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, DetailFragment.newInstance(bundle))
                 .addToBackStack(null)

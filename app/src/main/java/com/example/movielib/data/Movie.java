@@ -1,16 +1,18 @@
 package com.example.movielib.data;
 
 public class Movie {
+    private int id;
     private String name;
-    private String description;
-    private int image;
-    private boolean visited;
+    private String image;
+//    private boolean visited;
+//    private String description;
 
-    public Movie(String name,String description,int image,boolean visited){
-        this.name = name;
-        this.description = description;
-        this.image = image;
-        this.visited = visited;
+    public Movie(MovieJson movieJson){
+        this.id = movieJson.id;
+        this.name = movieJson.title;
+        this.image = movieJson.img;
+        //        this.description = description;
+        //        this.visited = visited;
     }
 
 
@@ -20,19 +22,25 @@ public class Movie {
         return name;
     }
 
-    public void setVisited(Boolean visited){
-        this.visited = visited;
+    public int getId(){
+        return id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public boolean getVisited(){
-        return visited;
-    }
+//    public void setVisited(Boolean visited){
+//        this.visited = visited;
+//    }
+
+//    public String getDescription() {
+//        return description;
+//    }
+
+
+
+//    public boolean getVisited(){
+//        return visited;
+//    }
 }

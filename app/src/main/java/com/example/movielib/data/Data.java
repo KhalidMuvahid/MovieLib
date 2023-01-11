@@ -9,11 +9,7 @@ public class Data {
     private static ArrayList<Movie> movies = new ArrayList<>();
     private static Data data = null;
 
-    private Data(){
-        movies.add(new Movie("The Boy", "This is a good movie about teenager boy and his friends.They are have a lot of adventure.", R.drawable.boy, false));
-        movies.add(new Movie("The Old Woman", "This is a good movie about old woman and how she spend her time alon.This is a sad story prepare napkins.", R.drawable.grandma, false));
-        movies.add(new Movie("The Dog", "This is a good movie about a dog and how hard his live.This is a sad story prepare napkins", R.drawable.dog, false));
-    }
+    private Data(){}
 
     public static Data getInstance(){
         if (data == null){
