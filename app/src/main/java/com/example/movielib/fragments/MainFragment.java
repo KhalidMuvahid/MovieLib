@@ -1,21 +1,22 @@
-package com.example.movielib;
+package com.example.movielib.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.movielib.MainActivity;
+import com.example.movielib.MovieApplication;
+import com.example.movielib.R;
 import com.example.movielib.data.Data;
 import com.example.movielib.data.Movie;
 import com.example.movielib.data.MovieJson;
 import com.example.movielib.databinding.FragmentMainBinding;
-import com.example.movielib.recycler.CustomItemAnimator;
 import com.example.movielib.recycler.MainRecycleAdapter;
 import com.example.movielib.interfaces.RecyclerItemClickListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;

@@ -9,18 +9,18 @@ import androidx.core.view.GravityCompat;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.movielib.data.Data;
 import com.example.movielib.databinding.FragmentContainerLayoutBinding;
+import com.example.movielib.fragments.AddMovieFragment;
 import com.example.movielib.fragments.InfoFragment;
-import com.example.movielib.interfaces.OpenEditBottomSheet;
+import com.example.movielib.fragments.LovelyFragment;
+import com.example.movielib.fragments.MainFragment;
+import com.example.movielib.fragments.MovieMapsFragment;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -114,6 +114,14 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                         .beginTransaction()
                         .replace(R.id.fragment_container, new LovelyFragment())
                         .commit();
+                break;
+            }
+            case R.id.maps:{
+                Toast.makeText(this,"clicked",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this,MovieMapsFragment.class);
+                startActivity(intent);
+
+                break;
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START);

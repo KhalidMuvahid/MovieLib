@@ -18,4 +18,7 @@
         android:title="Lovelies"
         android:icon="@drawable/ic_baseline_heart_broken_24"
         />
+    <item android:id="@+id/maps"
+        android:title="Map"
+        android:icon="@drawable/ic_baseline_map_24"/>
 </menu>

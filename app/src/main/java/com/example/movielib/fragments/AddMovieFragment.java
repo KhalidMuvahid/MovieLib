@@ -1,4 +1,4 @@
-package com.example.movielib;
+package com.example.movielib.fragments;
 
 import android.content.Context;
 import android.os.Bundle;

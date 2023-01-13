@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -16,8 +15,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.movielib.LovelyFragment;
-import com.example.movielib.MainFragment;
+import com.example.movielib.fragments.LovelyFragment;
 import com.example.movielib.R;
 import com.example.movielib.data.LovelyMovies;
 import com.example.movielib.data.Movie;

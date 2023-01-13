@@ -1,4 +1,4 @@
-package com.example.movielib;
+package com.example.movielib.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.movielib.R;
 import com.example.movielib.data.LovelyMovies;
 import com.example.movielib.interfaces.RecyclerItemClickListener;
 import com.example.movielib.recycler.CustomItemAnimator;

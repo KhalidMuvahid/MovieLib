@@ -1,7 +1,5 @@
-package com.example.movielib;
+package com.example.movielib.fragments;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,9 +11,10 @@ import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.movielib.MainActivity;
+import com.example.movielib.R;
 import com.example.movielib.databinding.FragmentDetailBinding;
 
 public class DetailFragment extends Fragment implements CheckBox.OnCheckedChangeListener, TextWatcher {
